@@ -1,0 +1,170 @@
+/* Base styles for the fresh and happy theme */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f9fc; /* Light background */
+    transition: background-color 0.5s ease-in-out;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.card {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    transition: opacity 0.3s ease-in-out;
+    position: relative; /* For custom content within the card */
+    z-index: 10;
+}
+.text-primary { color: #5cb85c; } /* Cheerful Green */
+.bg-button-primary { background-color: #ff9933; } /* Cheerful Orange */
+.bg-button-primary:hover { background-color: #ffb366; }
+.text-error { color: #d9534f; } /* Soft Red for error */
+
+/* Custom Checkbox/Radio Styling */
+.option-box {
+    display: flex;
+    align-items: center;
+    border: 2px solid #ddd;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.option-box:hover {
+    border-color: #ff9933;
+    box-shadow: 0 0 8px rgba(255, 153, 51, 0.3);
+}
+.option-box input[type="radio"],
+.option-box input[type="checkbox"] {
+    /* Hide the native radio/checkbox */
+    display: none;
+}
+.option-box input[type="radio"]:checked + .option-content,
+.option-box input[type="checkbox"]:checked + .option-content {
+    border-color: #5cb85c; /* Highlight border */
+    background-color: #e6ffe6; /* Light green background */
+}
+.option-content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+}
+.option-box input[type="radio"]:checked + .option-content .checkmark {
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+}
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-right: 1rem;
+    transition: all 0.2s;
+    position: relative;
+}
+.checkmark::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.option-box input[type="radio"]:checked + .option-content .checkmark::after {
+    opacity: 1;
+}
+.date-input-container {
+    margin-top: 1rem;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+.date-input-container.active {
+    max-height: 100px; /* Adjust based on content height */
+    opacity: 1;
+}
+
+/* Image Framing Styles */
+#background-frame {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 5;
+}
+.cartoon-image {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    width: 250px; /* Standard size for individuals */
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.cartoon-image.active {
+    opacity: 1;
+}
+/* Individual Placement (Adjusted for "fresh and happy" look) */
+#img-top-left { top: 5%; left: 5%; transform: rotate(-5deg); }
+#img-bottom-right { bottom: 5%; right: 5%; transform: rotate(5deg); }
+#img-success { 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    width: 500px; /* Larger size for group image */
+    box-shadow: none;
+}
+
+/* Fireworks styles */
+#fireworks-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1s;
+}
+#fireworks-canvas.active {
+    opacity: 1;
+}
+
+/* Utility for centering text */
+.center-text {
+    text-align: center;
+}
+
+/* Loading Spinner */
+.loader {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

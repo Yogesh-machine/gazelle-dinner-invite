@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gazelle Invitation</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Link External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <!-- Canvas for Fireworks (Hidden initially) -->
+    <canvas id="fireworks-canvas"></canvas>
+
+    <!-- Background Framing Area for Cartoons -->
+    <div id="background-frame">
+        <!-- Images will be injected here by JavaScript -->
+    </div>
+
+    <!-- Main Application Card -->
+    <div id="app-container" class="card shadow-lg">
+        <div class="relative">
+            <!-- Navigation Buttons -->
+            <div id="nav-buttons" class="absolute top-0 left-0 w-full flex justify-between px-2" style="transform: translateY(-2.5rem);">
+                <button onclick="goBack()" id="back-btn" class="text-xs font-semibold text-gray-500 hover:text-gray-700 transition hidden">
+                    &lt; Back
+                </button>
+                <button onclick="goNext()" id="next-btn-top" class="text-xs font-semibold text-gray-500 hover:text-gray-700 transition hidden">
+                    Next &gt;
+                </button>
+            </div>
+
+            <!-- Page Content Renders Here -->
+            <div id="page-content" class="transition-opacity duration-300">
+                <!-- Content will be injected by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Link External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
